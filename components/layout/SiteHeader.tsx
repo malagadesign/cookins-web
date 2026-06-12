@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { mainNav } from "@/lib/navigation";
-import { site } from "@/lib/site";
+import { CookinsLogo } from "@/components/brand/CookinsLogo";
+import { DesktopNavItem, MobileNavGroup } from "@/components/layout/NavDropdown";
+import { contactNavItem, mainNavItems } from "@/lib/navigation";
 
 export function SiteHeader() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const closeMobile = () => setOpen(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-lg backdrop-saturate-150">
@@ -16,47 +16,24 @@ export function SiteHeader() {
         <Link
           href="/"
           className="focus-ring shrink-0 rounded-sm py-1"
-          onClick={() => setOpen(false)}
+          onClick={closeMobile}
         >
-          <span className="block font-serif text-[1.35rem] font-semibold leading-none tracking-tight text-foreground sm:text-2xl">
-            {site.name}
-          </span>
-          <span className="mt-1 block text-[10px] font-semibold tracking-[0.2em] text-muted-2 uppercase">
-            Servicios integrales
-          </span>
+          <CookinsLogo className="h-8 w-auto text-[#073320] sm:h-9" />
+          <span className="sr-only">Cookins — Inicio</span>
         </Link>
 
-        <nav
-          className="hidden items-center gap-1 lg:flex"
-          aria-label="Principal"
-        >
-          {mainNav.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`focus-ring rounded-sm border-b-2 px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors ${
-                  active
-                    ? "border-accent text-foreground"
-                    : "border-transparent text-muted hover:border-foreground/12 hover:text-foreground"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
+          {mainNavItems.map((item) => (
+            <DesktopNavItem key={item.href} item={item} />
+          ))}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
-            href="/contacto"
+            href={contactNavItem.href}
             className="focus-ring hidden items-center gap-2 rounded-sm border border-foreground/10 bg-foreground px-5 py-2.5 text-[13px] font-semibold tracking-wide text-background shadow-sm transition-[background-color,box-shadow,color] hover:bg-ink-elevated hover:shadow-md sm:inline-flex"
           >
-            Contacto
+            {contactNavItem.label}
             <span className="text-background/70" aria-hidden>
               →
             </span>
@@ -77,31 +54,16 @@ export function SiteHeader() {
         id="mobile-nav"
         className={`border-t border-border bg-background/98 lg:hidden ${open ? "block" : "hidden"}`}
       >
-        <nav className="mx-auto flex max-w-7xl flex-col px-5 py-4 sm:px-6" aria-label="Móvil">
-          {mainNav.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`focus-ring rounded-sm border-b border-border/60 py-3.5 text-[15px] font-medium last:border-b-0 ${
-                  active ? "text-foreground" : "text-muted"
-                }`}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav className="mx-auto max-w-7xl px-5 py-4 sm:px-6" aria-label="Móvil">
+          {mainNavItems.map((item) => (
+            <MobileNavGroup key={item.href} item={item} onNavigate={closeMobile} />
+          ))}
           <Link
-            href="/contacto"
-            className="focus-ring mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-foreground py-3.5 text-center text-[15px] font-semibold tracking-wide text-background"
-            onClick={() => setOpen(false)}
+            href={contactNavItem.href}
+            className="focus-ring mt-4 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-foreground py-3.5 text-center text-[15px] font-semibold tracking-wide text-background"
+            onClick={closeMobile}
           >
-            Contacto
+            {contactNavItem.label}
             <span aria-hidden>→</span>
           </Link>
         </nav>

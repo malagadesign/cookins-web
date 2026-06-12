@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookinsLogo } from "@/components/brand/CookinsLogo";
 import { footerColumns } from "@/lib/navigation";
 import { site } from "@/lib/site";
 
@@ -15,10 +16,11 @@ export function SiteFooter() {
         <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-4">
-              <p className="font-serif text-2xl font-semibold tracking-tight sm:text-[1.65rem]">
-                {site.name}
-              </p>
-              <p className="mt-2 text-[11px] font-semibold tracking-[0.2em] text-hero-fg/45 uppercase">
+              <Link href="/" className="focus-ring inline-block rounded-sm">
+                <CookinsLogo className="h-9 w-auto text-hero-fg sm:h-10" />
+                <span className="sr-only">Cookins — Inicio</span>
+              </Link>
+              <p className="mt-3 text-[11px] font-semibold tracking-[0.2em] text-hero-fg/45 uppercase">
                 Argentina
               </p>
               <p className="mt-6 max-w-sm text-sm leading-relaxed text-hero-fg-muted">

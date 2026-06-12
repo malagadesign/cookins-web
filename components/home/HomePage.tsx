@@ -1,6 +1,4 @@
-import { InsightTeaser } from "@/components/cards/InsightTeaser";
-import { LinkCard } from "@/components/cards/LinkCard";
-import { SectorCard } from "@/components/cards/SectorCard";
+import { SolutionsCarousel } from "@/components/home/SolutionsCarousel";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HomeHero } from "@/components/home/HomeHero";
 import { Section } from "@/components/sections/Section";
@@ -94,8 +92,8 @@ export function HomePage() {
                 </p>
               </div>
               <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-border pt-10 lg:ml-10">
-                <ButtonLink href="/compania" variant="secondary">
-                  Conocer la compañía
+                <ButtonLink href="/nosotros" variant="secondary">
+                  Conocer nosotros
                 </ButtonLink>
                 <p className="max-w-xs text-xs leading-relaxed text-muted-2">
                   Propósito, misión, cultura y capacidad operativa en un solo eje
@@ -107,8 +105,8 @@ export function HomePage() {
         </div>
       </Section>
 
-      {/* Soluciones: corazón comercial */}
-      <Section tone="wash" id="soluciones-integrales" wide className="relative">
+      {/* Servicios: corazón comercial */}
+      <Section tone="wash" id="servicios" wide className="relative">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(18,56,54,0.08),transparent)]"
           aria-hidden
@@ -116,103 +114,14 @@ export function HomePage() {
         <div className="relative">
           <SectionHeading
             eyebrow="Propuesta central"
-            title="Soluciones integrales"
-            subtitle="Diseñamos y gestionamos servicios que conviven con la operación: alimentación institucional, soporte en predio y esquemas a medida para entornos con exigencia logística y regulatoria."
+            title="Servicios"
+            subtitle="Alimentación institucional, sitios remotos e infraestructura, facility services, traslado de personal y partner estratégico de inversión."
             size="xl"
             className="max-w-4xl"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-            <LinkCard
-              href="/soluciones#alimentacion"
-              category="Eje · Operación diaria"
-              title="Alimentación institucional"
-              description="Menús planificados, producción y distribución con foco en seguridad alimentaria, consistencia y experiencia cotidiana en grandes dotaciones."
-              footer="Ver alcance"
-            />
-            <LinkCard
-              href="/soluciones#soporte"
-              category="Eje · Predio"
-              title="Servicios de soporte"
-              description="Acompañamiento operativo en predio: equipos, procesos y estándares alineados con la dinámica de cada cliente y cada turno."
-              footer="Ver alcance"
-            />
-            <LinkCard
-              href="/soluciones#remotos"
-              category="Eje · Continuidad"
-              title="Operación en sitios remotos"
-              description="Esquemas pensados para lejanía, cadena de suministro y continuidad: lo crítico no es solo llegar, es mantener el servicio en el tiempo."
-              footer="Ver alcance"
-            />
-          </div>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/soluciones" variant="secondary">
-              Ver las 5 soluciones
-            </ButtonLink>
-            <ButtonLink href="/soluciones#a-medida" variant="ghost">
-              Soluciones a medida
-            </ButtonLink>
-            <ButtonLink href="/soluciones#bienestar" variant="ghost">
-              Bienestar y experiencia cotidiana
-            </ButtonLink>
-          </div>
+          <SolutionsCarousel />
         </div>
       </Section>
-
-      {/* Sectores: canvas distinto, lectura contextual */}
-      <section
-        id="sectores"
-        className="border-y border-border/70 bg-gradient-to-b from-sector-canvas/45 via-background to-background py-[var(--spacing-section)]"
-      >
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-sector-ink/70 uppercase">
-              Contextos de trabajo
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl lg:text-[2.65rem]">
-              Sectores y entornos
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-              Trabajamos donde la operación es intensa y el margen de error es bajo: minería,
-              industria, grandes empresas y asentamientos alejados de centros urbanos. Cada
-              sector exige matices distintos en logística, seguridad y coordinación.
-            </p>
-          </div>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-2 lg:gap-6 xl:grid-cols-4">
-            <SectorCard
-              code="01"
-              href="/sectores#mineria"
-              title="Minería"
-              description="Servicios alineados a turnos, campamentos y estándares de seguridad e higiene propios del sector extractivo."
-              contextLine="Faena · campamentos · HSE"
-              accent="teal"
-            />
-            <SectorCard
-              code="02"
-              href="/sectores#industria"
-              title="Industria"
-              description="Integración con plantas y operaciones productivas: puntualidad, volumen, protocolos y coordinación con HSE y RR. HH."
-              contextLine="Plantas · picos de demanda"
-              accent="slate"
-            />
-            <SectorCard
-              code="03"
-              href="/sectores#empresas"
-              title="Empresas"
-              description="Soluciones para sedes corporativas y dotaciones numerosas, con foco en orden, calidad y experiencia del día a día."
-              contextLine="Sedes · dotaciones urbanas"
-              accent="stone"
-            />
-            <SectorCard
-              code="04"
-              href="/sectores#sitios-remotos"
-              title="Sitios remotos"
-              description="Logística y ejecución para contextos con restricciones de acceso, infraestructura variable y necesidad de autonomía operativa."
-              contextLine="Lejanía · cadena crítica"
-              accent="deep"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Diferenciales: bento / respaldo comercial */}
       <Section id="diferenciales" wide>
@@ -278,7 +187,7 @@ export function HomePage() {
               Método y estándares
             </p>
             <h2 className="mt-3 max-w-md font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-              Calidad y operación
+              Calidad
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
               Detrás de cada servicio hay procesos auditables, capacitación y estándares
@@ -298,8 +207,8 @@ export function HomePage() {
               ))}
             </ul>
             <div className="mt-10">
-              <ButtonLink href="/calidad-operacion" variant="secondary" size="lg">
-                Ver calidad y operación
+              <ButtonLink href="/calidad" variant="secondary" size="lg">
+                Ver calidad
               </ButtonLink>
             </div>
           </div>
@@ -326,8 +235,8 @@ export function HomePage() {
         </div>
       </Section>
 
-      {/* Impacto: posicionamiento estratégico */}
-      <Section tone="default" wide id="impacto" className="relative">
+      {/* RSE: posicionamiento estratégico */}
+      <Section tone="default" wide id="rse" className="relative">
         <div
           className="pointer-events-none absolute left-0 top-0 hidden h-24 w-px bg-gradient-to-b from-accent to-transparent lg:block"
           aria-hidden
@@ -336,19 +245,19 @@ export function HomePage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
             <div className="lg:col-span-5">
               <p className="text-[11px] font-semibold tracking-[0.2em] text-accent uppercase">
-                Sustentabilidad e impacto
+                Responsabilidad social
               </p>
               <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl lg:text-[2.5rem] lg:leading-tight">
-                Valor compartido como decisión de gestión
+                Sustentabilidad y formación
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
-                Trabajamos sobre proveedores, comunidad, educación y prácticas responsables
-                como parte de la forma en que operamos. El impacto no es un anexo: se
-                conecta con eficiencia, reducción de riesgos y reputación institucional.
+                Trabajamos sobre sustentabilidad, desarrollo de personas y relación
+                responsable con proveedores y comunidades como parte de la forma en que
+                operamos.
               </p>
               <div className="mt-8">
-                <ButtonLink href="/impacto" variant="secondary" size="lg">
-                  Ver impacto
+                <ButtonLink href="/rse" variant="secondary" size="lg">
+                  Ver RSE
                 </ButtonLink>
               </div>
             </div>
@@ -359,16 +268,8 @@ export function HomePage() {
                   d: "Eficiencia en el uso de recursos y criterios de compra responsable alineados a la operación.",
                 },
                 {
-                  t: "Proveedores y cadena de valor",
-                  d: "Desarrollo de proveedores locales cuando el proyecto lo permite, sin bajar el estándar de calidad.",
-                },
-                {
-                  t: "Comunidad y educación",
-                  d: "Iniciativas acotadas y medibles, con gobierno claro y foco en resultados verificables.",
-                },
-                {
-                  t: "Compromisos institucionales",
-                  d: "Marco de buenas prácticas y Pacto Global (contenidos en preparación editorial).",
+                  t: "Formación y desarrollo",
+                  d: "Capacitación de equipos, iniciativas educativas y desarrollo de personas en la operación.",
                 },
               ].map((row) => (
                 <li
@@ -384,58 +285,6 @@ export function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* Insights: editorial */}
-      <Section id="insights" wide className="border-t border-border/80">
-        <div className="flex flex-col justify-between gap-8 pb-12 lg:flex-row lg:items-end lg:pb-14">
-          <div className="max-w-2xl">
-            <p className="text-[11px] font-semibold tracking-[0.2em] text-accent uppercase">
-              Centro de contenidos
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-              Insights
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
-              Documentos de interés para compras, operaciones, HSE y management: criterios,
-              tendencias y buenas prácticas en servicios integrales. Pensado para lectura
-              ejecutiva.
-            </p>
-          </div>
-          <ButtonLink href="/insights" variant="secondary">
-            Ver archivo completo
-          </ButtonLink>
-        </div>
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            <InsightTeaser
-              href="/insights"
-              category="Operación"
-              dateLabel="Próxima publicación"
-              title="Cómo leer un pliego de servicios de alimentación sin perder el foco operativo"
-              excerpt="Checklist para evaluar propuestas en función de logística, continuidad, seguridad alimentaria y gobierno del servicio. Una guía para compras que necesitan comparar “manzanas con manzanas”."
-              variant="featured"
-            />
-          </div>
-          <div className="flex flex-col gap-10 lg:col-span-5 lg:gap-0">
-            <InsightTeaser
-              href="/insights"
-              category="Calidad"
-              dateLabel="Próxima publicación"
-              title="Indicadores que importan más allá del costo por cubierto"
-              excerpt="Qué mirar cuando el servicio convive con turnos críticos y entornos regulados."
-              variant="compact"
-            />
-            <InsightTeaser
-              href="/insights"
-              category="Logística"
-              dateLabel="Próxima publicación"
-              title="Sitios remotos: planificación frente a la imprevisibilidad"
-              excerpt="Cadena de suministro, stock de seguridad y roles claros entre cliente y proveedor."
-              variant="compact"
-            />
           </div>
         </div>
       </Section>
@@ -480,12 +329,12 @@ export function HomePage() {
                 Ir al formulario de contacto
               </ButtonLink>
               <ButtonLink
-                href="/soluciones"
+                href="/servicios"
                 variant="secondary"
                 size="lg"
                 className="w-full border-white/25 bg-transparent text-hero-fg hover:bg-white/10 sm:w-auto"
               >
-                Explorar soluciones
+                Explorar servicios
               </ButtonLink>
             </div>
           </aside>

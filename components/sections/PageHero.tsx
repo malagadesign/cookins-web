@@ -1,19 +1,25 @@
 import type { ReactNode } from "react";
+import { SectionBreadcrumb } from "@/components/sections/SectionBreadcrumb";
 
 export function PageHero({
   eyebrow,
   title,
   lead,
+  breadcrumb,
   children,
 }: {
   eyebrow?: string;
   title: string;
   lead: string;
+  breadcrumb?: { parent: { href: string; label: string }; current: string };
   children?: ReactNode;
 }) {
   return (
     <header className="border-b border-border bg-wash/60">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        {breadcrumb ? (
+          <SectionBreadcrumb parent={breadcrumb.parent} current={breadcrumb.current} />
+        ) : null}
         {eyebrow ? (
           <p className="font-serif text-sm font-medium tracking-[0.12em] text-accent uppercase">
             {eyebrow}

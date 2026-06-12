@@ -22,7 +22,8 @@ const plexSerif = IBM_Plex_Serif({
 export const metadata = {
   ...rootMetadata,
   icons: {
-    icon: "/favicon.ico",
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: "/favicon.png",
   },
   authors: [{ name: site.legalName }],
 };
